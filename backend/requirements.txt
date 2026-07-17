@@ -1,0 +1,14 @@
+Django>=4.2,<5.0
+djangorestframework>=3.14
+djangorestframework-simplejwt>=5.3
+django-cors-headers>=4.3
+django-db-connection-pool>=1.2
+PyMySQL>=1.1
+redis>=5.0
+django-redis>=5.4
+celery>=5.3
+prometheus-client>=0.20
+requests>=2.31
+python-dotenv>=1.0
+PyJWT>=2.8
+lark-oapi>=1.6.0
