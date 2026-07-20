@@ -45,7 +45,7 @@ CELERY_BROKER_URL=redis://127.0.0.1:6379/0
 
 ### 飞书
 
-完整步骤见 [飞书机器人配置全过程](./FEISHU_BOT_SETUP.md)。简述：开放平台创建应用 → 开通机器人与权限 → 事件订阅优先用**长连接** → 拉进群 → 配置管理填写 App ID/Secret、`chat_id`、关联项目并开启长连接。指令见 [FEISHU_COMMANDS.md](./FEISHU_COMMANDS.md)。
+完整步骤见 [飞书机器人配置全过程](./FEISHU_BOT_SETUP.md)。简述：开放平台创建应用 → 开通机器人与权限 → 事件订阅优先用**长连接** → 配置管理填写 App ID/Secret 并开启长连接 → 把机器人拉进群并用「获取群列表」填入 chat_id。指令见 [FEISHU_COMMANDS.md](./FEISHU_COMMANDS.md)。
 
 ## 4. 工作流
 

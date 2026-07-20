@@ -255,7 +255,7 @@ wss://open.feishu.cn/open-apis/event/v1/outbound
 | App Secret | `feishu_app_secret` | `***` | 必填；留空保存表示不改原值 |
 | WebSocket 长连接 | `feishu_ws_enabled` | 开启 | 方式 A 必开 |
 | 群聊需 @ 机器人 | `feishu_ws_require_mention` | 开启/关闭 | 见 6.3 |
-| 飞书群 chat_id | `feishu_chat_group_id` | `oc_xxx` | 与默认项目绑定 |
+| 飞书群 chat_id | `feishu_chat_group_id` | `oc_xxx` | 与默认项目绑定；拉机器人进群后用「获取群列表」填入 |
 | 关联项目 | `feishu_default_project_id` | `1` | 该群消息落到哪个项目 |
 
 亦可在项目「编辑项目」中填写项目级 `chat_id`（匹配优先级见 6.4）。
@@ -300,8 +300,7 @@ FEISHU_WS_REQUIRE_MENTION=true
 | GET | `/api/feishu/long-connection/status/` | 长连接状态 |
 | GET | `/api/feishu/long-connection/logs/` | 最近日志 |
 | POST | `/api/feishu/long-connection/restart/` | 重连 |
-| GET | `/api/feishu/chats/` | 机器人所在群 |
-| POST | `/api/feishu/webhook/` | HTTP 事件入口（含 challenge） |
+| GET | `/api/feishu/chats/` | 机器人所在群列表 |
 
 状态含义：
 

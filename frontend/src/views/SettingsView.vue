@@ -56,7 +56,12 @@
               <el-tag v-if="form.FEISHU.hasAppSecret" type="success" size="small" round>已配置</el-tag>
               <el-tag v-else type="info" size="small" round>未配置</el-tag>
             </div>
-            <p>配置飞书应用凭证与 WebSocket 长连接，接收群消息并自动创建任务。</p>
+            <p>
+              配置飞书应用凭证与 WebSocket 长连接。创建应用、赋权、发版须在
+              <a href="https://open.feishu.cn/app" target="_blank" rel="noopener">飞书开放平台</a>
+              人工完成。详见文档
+              <code>docs/FEISHU_BOT_SETUP.md</code>。
+            </p>
           </div>
         </div>
 
@@ -86,6 +91,11 @@
               开启后，群里发消息必须 @ 机器人，否则会被忽略（长连接日志会显示「被过滤」）。
             </p>
           </el-form-item>
+          <el-form-item label="关联项目">
+            <el-select v-model="form.FEISHU.defaultProjectId" placeholder="选择接收群消息的项目" clearable>
+              <el-option v-for="p in projects" :key="p.id" :label="p.projectName" :value="p.id" />
+            </el-select>
+          </el-form-item>
           <el-form-item label="飞书群 chat_id" class="span-2">
             <div class="chat-id-row">
               <el-input v-model="form.FEISHU.chatGroupId" placeholder="oc_xxx" />
@@ -104,13 +114,8 @@
               </el-button>
             </p>
             <p v-else class="field-hint">
-              保存 App 凭证后点「获取群列表」；或先在飞书把机器人拉进群，并在开放平台开通 im:chat 权限。
+              先把机器人拉进目标群，保存凭证后点「获取群列表」选用；需开通 im:chat。
             </p>
-          </el-form-item>
-          <el-form-item label="关联项目">
-            <el-select v-model="form.FEISHU.defaultProjectId" placeholder="选择接收群消息的项目" clearable>
-              <el-option v-for="p in projects" :key="p.id" :label="p.projectName" :value="p.id" />
-            </el-select>
           </el-form-item>
         </div>
 
@@ -397,6 +402,11 @@ onMounted(() => {
   font-size: 0.8125rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+.field-hint code {
+  font-size: 0.75rem;
+  word-break: break-all;
 }
 
 .field-hint.warn {
